@@ -31,6 +31,7 @@ e-mail   :  support@circuitsathome.com
 #include <stdio.h>
 
 // None of these should ever be included by a driver, or a user's sketch.
+#define __RP2040__
 #include "settings.h"
 #include "printhex.h"
 #include "message.h"
@@ -40,6 +41,7 @@ e-mail   :  support@circuitsathome.com
 #include "address.h"
 #include "avrpins.h"
 #include "usb_ch9.h"
+#undef SPI_HAS_TRANSACTION
 #include "usbhost.h"
 #include "UsbCore.h"
 #include "parsetools.h"
