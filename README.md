@@ -1,3 +1,37 @@
+# USB Host Library Rev. 2.0 fork fix for Arduino-Pico
+
+Tested with the Raspberry Pi Pico W and a USB Host Shield 2.0 mini
+
+Check the commit history to see what i did to make it work, i just commented some stuff out.
+
+## Set-up
+
+Grab Arduino-Pico board lib from https://github.com/earlephilhower/arduino-pico
+
+Download the usb library form this repo and paste it to `Arduino/libraries/USB_Host_Shield_2.0`
+
+Go to examples and compile `board_qc`
+
+Connect the Pico to the shield as following
+
+```
+SCK     GPIO 10
+MOSI    GPIO 11
+MISO    GPIO 12
+SS      GPIO 13
+INT     GPIO 14
+
+MAX_RST Pico RUN Pin  //Mandatory, otherwise the long SPI test fails
+
+3v3     Pico 3v3 OUT
+5v usb  Pico VBus
+GND     Pico GND
+```
+
+On the Usb Host shield, cut the trace going from the usb port to the Max ic, check online for pictures of the trace otherwise you will blow the ic.
+
+----------
+
 # USB Host Library Rev. 2.0
 
 This repo is copied from https://github.com/tmk/USB_Host_Shield_2.0 then sync with [GitHub:USB Host Shield 2.0](https://github.com/felis/USB_Host_Shield_2.0)
@@ -45,32 +79,38 @@ For more information about the hardware see the [Hardware Manual](https://chome.
 
 # Table of Contents
 
-* [How to include the library](#how-to-include-the-library)
-    * [Arduino Library Manager](#arduino-library-manager)
-    * [Manual installation](#manual-installation)
-* [How to use the library](#how-to-use-the-library)
-    * [Documentation](#documentation)
-    * [Enable debugging](#enable-debugging)
-    * [Boards](#boards)
-    * [Bluetooth libraries](#bluetooth-libraries)
-    * [BTHID library](#bthid-library)
-    * [SPP library](#spp-library)
-    * [PS5 Library](#ps5-library)
-    * [PS4 Library](#ps4-library)
-    * [PS3 Library](#ps3-library)
-    * [Xbox Libraries](#xbox-libraries)
-        * [Xbox library](#xbox-library)
-        * [Xbox 360 Library](#xbox-360-library)
-        * [Xbox ONE Library](#xbox-one-library)
-        * [Xbox ONE S Library](#xbox-one-s-library)
-    * [Wii library](#wii-library)
-    * [Switch Pro Library](#switch-pro-library)
-    * [PS Buzz Library](#ps-buzz-library)
-    * [HID Libraries](#hid-libraries)
-    * [MIDI Library](#midi-library)
-    * [amBX Library](#amBX-library)
-* [Interface modifications](#interface-modifications)
-* [FAQ](#faq)
+- [USB Host Library Rev. 2.0 fork fix for Arduino-Pico](#usb-host-library-rev-20-fork-fix-for-arduino-pico)
+  - [Set-up](#set-up)
+- [USB Host Library Rev. 2.0](#usb-host-library-rev-20)
+- [Summary](#summary)
+- [Developed By](#developed-by)
+- [Table of Contents](#table-of-contents)
+- [How to include the library](#how-to-include-the-library)
+    - [Arduino Library Manager](#arduino-library-manager)
+    - [Manual installation](#manual-installation)
+- [How to use the library](#how-to-use-the-library)
+    - [Documentation](#documentation)
+    - [Enable debugging](#enable-debugging)
+    - [Boards](#boards)
+    - [Bluetooth libraries](#bluetooth-libraries)
+    - [BTHID library](#bthid-library)
+    - [SPP library](#spp-library)
+    - [PS5 Library](#ps5-library)
+    - [PS4 Library](#ps4-library)
+    - [PS3 Library](#ps3-library)
+    - [Xbox Libraries](#xbox-libraries)
+      - [Xbox library](#xbox-library)
+      - [Xbox 360 Library](#xbox-360-library)
+      - [Xbox ONE Library](#xbox-one-library)
+      - [Xbox ONE S Library](#xbox-one-s-library)
+    - [Wii library](#wii-library)
+    - [Switch Pro Library](#switch-pro-library)
+    - [PS Buzz Library](#ps-buzz-library)
+    - [HID Libraries](#hid-libraries)
+    - [MIDI Library](#midi-library)
+    - [amBX Library](#ambx-library)
+- [Interface modifications](#interface-modifications)
+- [FAQ](#faq)
 
 # How to include the library
 
