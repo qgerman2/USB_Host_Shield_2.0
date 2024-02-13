@@ -3,19 +3,19 @@
 #ifndef __rp2040_ard__
 #define __rp2040_ard__
 
-class ArduinoSerial {
-public:
-    ArduinoSerial();
-    void print(char c);
-    void print(const char *str);
-    void print(int v, const char *fmt);
-    void println(const char *str);
-    void println(int v, const char *fmt);
-};
-#define DEC  "%d"
-#define BYTE "%c"
+// class ArduinoSerial {
+// public:
+//     ArduinoSerial();
+//     void print(char c);
+//     void print(const char *str);
+//     void print(int v, const char *fmt);
+//     void println(const char *str);
+//     void println(int v, const char *fmt);
+// };
+// #define DEC  "%d"
+// #define BYTE "%c"
 
-extern ArduinoSerial Serial;
+// extern ArduinoSerial Serial;
 
 #include "hardware/spi.h"
 
